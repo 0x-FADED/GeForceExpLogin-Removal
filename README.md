@@ -1,32 +1,16 @@
-# BaiGfe
-Remove Mandatory Login of Geforce Experience - [support: v3.14.x to v3.20.x(current)]
+# GeForceExpLogin-Removal
+Remove Mandatory Login of Geforce Experience - [support: v3.26.0.154 and higher]
 # How to Remove Mandatory Login  
 
 make a backup of every files you edit !
 
 # Easy copy/paste fix :  
 
-Download pre-moded app.js : [https://github.com/Moyster/BaiGfe/raw/master/app.js](https://github.com/Moyster/BaiGfe/raw/master/app.js)
+Download pre-moded app.js : [https://github.com/0x-FADED/GeForceExpLogin-Removal/blob/master/app.js](https://github.com/0x-FADED/GeForceExpLogin-Removal/raw/master/app.js)
 
 Copy/paste to :
 
     C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\www\
-
-&#x200B;
-
-# Auto-install easy fix :
-
-**Right-click Install-Fix.ps1 and choose Run as Administrator**
-
-&#x200B;
-
-You may need to allow the script to run on your system. To do this: 
-
-1. Run powershell as administrator, then run this powershell call : 
-```
-Set-ExecutionPolicy RemoteSigned
-```
- 2. Type "A" then hit enter and re-run Install-Fix.ps1
 
 &#x200B;
 
@@ -47,19 +31,19 @@ use [http://jsbeautifier.org/](http://jsbeautifier.org/) on app.js found in :
 
 \- replace by :  
 
-    if (e.domains.list.indexOf(n) > -1) return y.handleLoggedIn(e), !0
+    if (e.domains.list.indexOf(n) > -1) return b.handleLoggedIn(e), !0
 
 Now let's add some fake infos, find :
   
-            }, y.isLeftPaneVisible = function() {
-                return !("choose" === y.nvActiveAuthView)
+            }, b.isLeftPaneVisible = function() {
+                return !("choose" === b.nvActiveAuthView)
             }
 
 And replace with this : 
 
-            }, y.isLeftPaneVisible = function() {
-                return !("choose" === y.nvActiveAuthView)
-            }, y.handleLoggedIn({
+            }, b.isLeftPaneVisible = function() {
+                return !("choose" === b.nvActiveAuthView)
+            }, b.handleLoggedIn({
                     sessionToken: "dummySessionToken",
                     userToken: "dummyUserToken",
                     user: {
@@ -76,11 +60,11 @@ And replace with this :
 
 \-  find and replace
 
-    X.isShareSupported = !1, X.isShareButtonClicked = !1
+    Y.isShareSupported = !1, Y.isShareButtonClicked = !1
 
 by
 
-    X.isShareSupported = !0, X.isShareButtonClicked = !0
+    Y.isShareSupported = !0, Y.isShareButtonClicked = !0
 
 To make the shadowplay & share buttons show on the main GFE screen
 
@@ -89,11 +73,11 @@ To make the shadowplay & share buttons show on the main GFE screen
 \- Optional (might help in some case where user previously was logged in) find   
 
 
-    E.info("automatically resent verification email"), u.endActionAsync(r, "EMAIL_NOT_VERIFIED"), y.showEmailVerification(e)  
+    b.info("automatically resent verification email"), u.endActionAsync(r, "EMAIL_NOT_VERIFIED"), h.showEmailVerification(e)  
 
 \-  and remove  
 
-    , y.showEmailVerification(e)
+    , h.showEmailVerification(e)
 
 # How to Block Data Collection / Telemetry (block all or keep Games Optimisations)
 
