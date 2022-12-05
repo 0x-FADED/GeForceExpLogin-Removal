@@ -35,24 +35,24 @@ use [http://jsbeautifier.org/](http://jsbeautifier.org/) on app.js found in :
 
 Now let's add some fake infos, find :
   
-            }, b.isLeftPaneVisible = function() {
-                return !("choose" === b.nvActiveAuthView)
-            }
+              (b.isLeftPaneVisible = function () {
+                return !("choose" === b.nvActiveAuthView);
+              });
 
 And replace with this : 
 
-            }, b.isLeftPaneVisible = function() {
-                return !("choose" === b.nvActiveAuthView)
-            }, b.handleLoggedIn({
-                    sessionToken: "dummySessionToken",
-                    userToken: "dummyUserToken",
-                    user: {
-                        core: {
-                            displayName: "Anonymous",
-                            primaryEmailVerified: true
-                        }
+              b.isLeftPaneVisible = function () {
+                return !("choose" === b.nvActiveAuthView);
+              }, b.handleLoggedIn({
+                sessionToken: "dummySessionToken",
+                userToken: "dummyUserToken",
+                user: {
+                    core: {
+                        displayName: "Anonymous",
+                        primaryEmailVerified: true
                     }
-                });
+                }
+            });
 
 &#x200B;
 
